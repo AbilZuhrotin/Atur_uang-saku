@@ -53,9 +53,24 @@ export default function Home() {
     }
   }, []);
 
+  // 1. Tambahkan satu state lagi di atas
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+
+  // 2. Di useEffect ambil data, set isFirstLoad jadi false
   useEffect(() => {
-    localStorage.setItem("catatan_bear_v4", JSON.stringify(transaksi));
-  }, [transaksi]);
+    const dataLama = localStorage.getItem("catatan_bear_v4");
+    if (dataLama) setTransaksi(JSON.parse(dataLama));
+    setIsFirstLoad(false); // Tandanya data sudah selesai ditarik
+
+    // ... (logic nama user)
+  }, []);
+
+  // 3. Di useEffect simpan data, cek isFirstLoad
+  useEffect(() => {
+    if (!isFirstLoad) {
+      localStorage.setItem("catatan_bear_v4", JSON.stringify(transaksi));
+    }
+  }, [transaksi, isFirstLoad]);
 
   const tanyaNama = () => {
     Swal.fire({
@@ -71,7 +86,7 @@ export default function Home() {
     }).then((result) => {
       if (result.value) {
         setUserNama(result.value);
-        localStorage.setItem("bear_v4_name", result.value);
+        localStorage.setItem("user_name_bear", result.value);
 
         // Munculin pesan salam kenal yang gemes
         Swal.fire({
