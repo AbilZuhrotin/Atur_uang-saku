@@ -151,13 +151,13 @@ export default function Laporan() {
         <div className="flex flex-col h-full">
           <div className="flex flex-col items-center mt-10 mb-12 text-center">
             <div className="bg-[#DBCEA5] w-20 h-20 rounded-full flex items-center justify-center text-4xl mb-4 border-4 border-white/20 shadow-lg">
-              📊
+              🧸
             </div>
             <h2 className="font-black text-xl tracking-tight leading-none uppercase italic">
-              Abil
+              {userNama}
             </h2>
             <p className="text-[10px] font-bold opacity-50 uppercase tracking-[0.2em] mt-2 italic">
-              Cookies Analyzer
+              Cookies Member
             </p>
           </div>
           <nav className="space-y-4">

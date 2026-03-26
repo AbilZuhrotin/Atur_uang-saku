@@ -240,7 +240,7 @@ export default function Home() {
             <div className="bg-[#DBCEA5] w-20 h-20 rounded-full flex items-center justify-center text-4xl mb-4 border-4 border-white/20">
               🧸
             </div>
-            <h2 className="font-black text-xl tracking-tight">Halo, Abil!</h2>
+            <h2 className="font-black text-xl tracking-tight">{userNama}</h2>
             <p className="text-[10px] font-bold opacity-50 uppercase tracking-widest mt-1">
               Cookies Member
             </p>
