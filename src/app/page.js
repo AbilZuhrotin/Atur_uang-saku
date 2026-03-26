@@ -350,44 +350,49 @@ export default function Home() {
         {/* Form Section */}
         <form
           onSubmit={simpanData}
-          className="bg-[#DBCEA5]/30 p-5 rounded-4xl border-2 border-[#DBCEA5] mb-8 space-y-4 shadow-sm"
+          className="bg-[#DBCEA5]/30 p-4 sm:p-5 rounded-[2rem] border-2 border-[#DBCEA5] mb-8 space-y-4 shadow-sm"
         >
-          <div className="flex items-center gap-2 px-1 text-sm font-bold uppercase">
-            <span>{editId ? "📝" : "✨"}</span>{" "}
+          <div className="flex items-center gap-2 px-1 text-xs sm:text-sm font-black uppercase tracking-wider">
+            <span>{editId ? "📝" : "✨"}</span>
             {editId ? "Ubah Catatan" : "Tambah Catatan"}
           </div>
 
           <input
             type="text"
             placeholder="Keterangan..."
-            className="w-full bg-[#ECE7D1] p-4 rounded-2xl outline-none"
+            className="w-full bg-[#ECE7D1] p-4 rounded-2xl outline-none text-sm placeholder:text-[#8A7650]/50"
             value={namaTransaksi}
             onChange={(e) => setNamaTransaksi(e.target.value)}
           />
 
+          {/* Bagian ini sering bikin meluber di layar < 375px */}
           <div className="flex gap-2">
-            <input
-              type="number"
-              placeholder="Rp"
-              className="flex-[2] bg-[#ECE7D1] p-4 rounded-2xl outline-none"
-              value={jumlah}
-              onChange={(e) => setJumlah(e.target.value)}
-            />
-            <select
-              className="flex-1 bg-[#ECE7D1] p-4 rounded-2xl font-bold text-xs"
-              value={tipe}
-              onChange={(e) => setTipe(e.target.value)}
-            >
-              <option value="pengeluaran">OUT</option>
-              <option value="pemasukan">IN</option>
-            </select>
+            <div className="flex-[2] min-w-0"> 
+              <input
+                type="number"
+                placeholder="Rp"
+                className="w-full bg-[#ECE7D1] p-4 rounded-2xl outline-none text-sm"
+                value={jumlah}
+                onChange={(e) => setJumlah(e.target.value)}
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <select
+                className="w-full bg-[#ECE7D1] p-4 rounded-2xl font-black text-[10px] sm:text-xs h-full appearance-none"
+                value={tipe}
+                onChange={(e) => setTipe(e.target.value)}
+              >
+                <option value="pengeluaran">Keluar</option>
+                <option value="pemasukan">Masuk</option>
+              </select>
+            </div>
           </div>
 
           {tipe === "pemasukan" && (
             <input
               type="text"
               placeholder="Sumber uang: (Contoh Gajian)"
-              className="w-full bg-[#ECE7D1] p-4 rounded-2xl outline-none border-2 border-[#8E977D]/30 animate-in slide-in-from-top-2"
+              className="w-full bg-[#ECE7D1] p-4 rounded-2xl outline-none border-2 border-[#8E977D]/30 animate-in slide-in-from-top-2 text-sm"
               value={sumber}
               onChange={(e) => setSumber(e.target.value)}
             />
@@ -396,7 +401,7 @@ export default function Home() {
           <div className="flex gap-2">
             <button
               type="submit"
-              className="flex-[3] bg-[#8E977D] text-[#ECE7D1] p-4 rounded-2xl font-black shadow-lg uppercase tracking-widest text-sm"
+              className="flex-[3] bg-[#8E977D] text-[#ECE7D1] p-4 rounded-2xl font-black shadow-lg uppercase tracking-widest text-xs sm:text-sm active:scale-95 transition-transform"
             >
               {editId ? "Update" : "Simpan"}
             </button>
