@@ -369,7 +369,7 @@ export default function Home() {
             <input
               type="number"
               placeholder="Rp"
-              className="flex-<2> bg-[#ECE7D1] p-4 rounded-2xl outline-none"
+              className="flex-[2] bg-[#ECE7D1] p-4 rounded-2xl outline-none"
               value={jumlah}
               onChange={(e) => setJumlah(e.target.value)}
             />
