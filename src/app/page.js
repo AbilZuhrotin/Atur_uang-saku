@@ -194,7 +194,7 @@ export default function Home() {
         </div>
 
         {/* Form Section */}
-        <form onSubmit={simpanData} className="bg-[#DBCEA5]/30 p-5 rounded-[2rem] border-2 border-[#DBCEA5] mb-8 space-y-4 shadow-sm">
+        <form onSubmit={simpanData} className="bg-[#DBCEA5]/30 p-5 rounded-4xl border-2 border-[#DBCEA5] mb-8 space-y-4 shadow-sm">
           <div className="flex items-center gap-2 px-1 text-sm font-bold uppercase">
               <span>{editId ? '📝' : '✨'}</span> {editId ? 'Ubah Catatan' : 'Tambah Catatan'}
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
           <div className="flex gap-2">
             <input 
               type="number" placeholder="Rp" 
-              className="flex-[2] bg-[#ECE7D1] p-4 rounded-2xl outline-none"
+              className="flex-<2> bg-[#ECE7D1] p-4 rounded-2xl outline-none"
               value={jumlah} onChange={(e) => setJumlah(e.target.value)}
             />
             <select className="flex-1 bg-[#ECE7D1] p-4 rounded-2xl font-bold text-xs" value={tipe} onChange={(e) => setTipe(e.target.value)}>
@@ -242,12 +242,12 @@ export default function Home() {
           <h3 className="font-black flex items-center gap-2">📜 Riwayat {daftarBulan[bulanAktif]}</h3>
           
           {transaksiTersaring.length === 0 ? (
-            <div className="text-center py-16 bg-[#DBCEA5]/20 rounded-[2rem] border-2 border-dashed border-[#DBCEA5]">
+            <div className="text-center py-16 bg-[#DBCEA5]/20 rounded-4xl border-2 border-dashed border-[#DBCEA5]">
               <p className="text-sm italic opacity-50 font-medium">Belum ada catatan di bulan ini.</p>
             </div>
           ) : (
             transaksiTersaring.map((item) => (
-              <div key={item.id} className="bg-white/60 backdrop-blur-sm p-4 rounded-[1.5rem] flex justify-between items-center border border-[#DBCEA5] shadow-sm">
+              <div key={item.id} className="bg-white/60 backdrop-blur-sm p-4 rounded-3xl flex justify-between items-center border border-[#DBCEA5] shadow-sm">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <p className="font-bold text-sm text-[#8A7650]">{item.nama}</p>
@@ -276,6 +276,9 @@ export default function Home() {
             ))
           )}
         </div>
+        <p className="text-center text-[10px] font-black opacity-20 mt-12 mb-6 uppercase tracking-[0.4em]">
+          Cookies Pocket 1.0 🧸
+        </p>
       </div>
     </div>
   );
